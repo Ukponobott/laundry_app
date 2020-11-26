@@ -27,8 +27,6 @@ class CustomerModel(Document):
     email = StringField(required=True, max_length=50)
     phone_number = StringField(required=True, max_length=50)
     address = StringField(max_length=120)
-    city = StringField(max_length=50)
-    state = StringField(max_length=50)
 
 cus = CustomerModel(full_name="Ukpono", email="ukpono@gmail.com", phone_number="08054494334")
 cus.save()
@@ -86,7 +84,7 @@ print(order.order_id)
 class GarmentModel(Document):
     order = ReferenceField(OrderModel)
     location = ReferenceField(LocationModel)
-    tracking_id = StringField(required=True, max_length=50, default=get_random_string(8))
+    status = StringField(required=True, max_length=50)
 
 gar1 = GarmentModel(order=order, location=loc)
 
